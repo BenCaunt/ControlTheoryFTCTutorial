@@ -18,7 +18,7 @@ public class pid {
 
 
     /**
-     * set PID gain and time between loop updates in millisecondsaqd
+     * set PID gain and time between loop updates in milliseconds
      * @param Kp
      * @param Ki
      * @param Kd
@@ -35,7 +35,9 @@ public class pid {
 
 
     public double output(double setPoint, double currentState) {
+        // calculate the error term 
         error = setPoint - currentState;
+        // obtain the proportional error (total waste of memory lul)
         k_error = error;
         d_error = (error - last_error) / time_step_seconds;
         i_error = i_error + (error * time_step_seconds);
